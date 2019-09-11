@@ -104,6 +104,8 @@ class LineOfSightCalculator:
                 peaks.append((int(last_angle), dist - 50))
                 max_angle = last_angle
             last_angle = angle
+        if len(peaks) == 0:
+            peaks.append((0, 0))
         return peaks
 
     @staticmethod
