@@ -1,7 +1,7 @@
 #REST calls
 
 GEOSERVER_PWD=geoserver
-GEOSERVER_URL=http://geoserver-ecs-alb-16367750.us-east-1.elb.amazonaws.com
+GEOSERVER_URL=YOUR_GEOSERVER_URL
 WORKSPACE_NAME=viewpoint
 STORE_NAME=viewpoint-store
 SCHEMA_NAME=public
@@ -15,8 +15,8 @@ TABLE_NAME=viewpoint
 # create workspace
 PREFIX_XML="<namespace><prefix>$WORKSPACE_NAME</prefix><uri>http://thinkwhere.com/$WORKSPACE_NAME</uri></namespace>"
 WORKSPACE_XML="<workspace><name>$WORKSPACE_NAME</name></workspace>"
-#curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d $PREFIX_XML $GEOSERVER_URL/geoserver/rest/namespaces
-#curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d $WORKSPACE_XML $GEOSERVER_URL/geoserver/rest/workspaces
+curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d $PREFIX_XML $GEOSERVER_URL/geoserver/rest/namespaces
+curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d $WORKSPACE_XML $GEOSERVER_URL/geoserver/rest/workspaces
 
 #create store
 STORE_XML=$(cat <<-END
@@ -46,8 +46,8 @@ STORE_XML=$(cat <<-END
     </connectionParameters></dataStore>
 END
 )
-#curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d "$STORE_XML" \
-#$GEOSERVER_URL/geoserver/rest/workspaces/$WORKSPACE_NAME/datastores
+curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d "$STORE_XML" \
+$GEOSERVER_URL/geoserver/rest/workspaces/$WORKSPACE_NAME/datastores
 
 #create layer
 
