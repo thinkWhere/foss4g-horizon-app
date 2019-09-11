@@ -27,3 +27,7 @@ DATABASE_CONNECTION_STRING = ""
 VIEWER_BUCKET = ""
 TERRAIN_DATA_BUCKET = ""
 ```
+
+## Running the app
+
+`docker-compose up`
