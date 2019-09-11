@@ -1,0 +1,5 @@
+
+class Config:
+    S3_ACCESS_KEY = ""
+    S3_ACCESS_SECRET_KEY = ""
+    DATABASE_CONNECTION_STRING = ""

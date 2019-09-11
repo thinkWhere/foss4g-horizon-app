@@ -1,0 +1,10 @@
+# Creates and runs horizon-app
+# docker-compose up
+version: "3"
+
+services:
+  horizon-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: horizon-app
