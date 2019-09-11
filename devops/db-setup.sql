@@ -1,17 +1,3 @@
--- Connect to Postgres Database
-
-CREATE DATABASE viewpointdb
-  WITH OWNER = twadmin
-       ENCODING = 'UTF8'
-	   TEMPLATE = template0
-       LC_COLLATE = 'en_GB.UTF-8'
-       LC_CTYPE = 'en_GB.UTF-8'
-       CONNECTION LIMIT = -1;
-GRANT CONNECT, TEMPORARY ON DATABASE viewpointdb TO public;
-GRANT ALL ON DATABASE viewpointdb TO twadmin;
-
--- Connect to viewpointdb Database
-
 CREATE EXTENSION postgis;
 
 CREATE ROLE viewpoint_user LOGIN encrypted password 'viewpoint' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
