@@ -67,3 +67,16 @@ END
 
 curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d "$LAYER_XML" \
 $GEOSERVER_URL/geoserver/rest/workspaces/$WORKSPACE_NAME/datastores/$STORE_NAME/featuretypes?recalculate=true
+
+# Allow Anonymous writes to layers
+DATA_SECURITY_XML=$(cat <<-END
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+  <rule resource="*.*.w">*</rule>
+  <rule resource="*.*.r">*</rule>
+</rules>
+END
+)
+
+curl -u admin:$GEOSERVER_PWD -X POST -H "Content-Type: text/xml" -d "$DATA_SECURITY_XML" \
+$GEOSERVER_URL/geoserver/rest/security/acl/layers
