@@ -33,7 +33,7 @@ def process_viewpoints():
         s3_service.upload_file(Config.VIEWER_BUCKET, f"data/{image_filename}", image_filename)
         s3_service.make_file_public(Config.VIEWER_BUCKET, f"data/{image_filename}")
         s3_service.upload_file(Config.VIEWER_BUCKET, f"data/{peaks_filename}", peaks_filename)
-        s3_service.make_file_public(Config.VIEWER_BUCKET, f"data/{image_filename}")
+        s3_service.make_file_public(Config.VIEWER_BUCKET, f"data/{peaks_filename}")
 
         # Delete the local files
         os.remove(image_filename)
