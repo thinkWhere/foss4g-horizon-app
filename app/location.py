@@ -40,7 +40,7 @@ def process_viewpoints():
         os.remove(peaks_filename)
 
         # Update the database
-        viewpoints.set_viewpoint_as_processed(entries[0]["id"], image_filename, peaks_filename)
+        viewpoints.set_viewpoint_as_processed(entry["id"], image_filename, peaks_filename)
 
         # User output
         end_time = process_time()
